@@ -1,3 +1,6 @@
+from numpy import float64
+
+
 import nltk
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -36,3 +39,13 @@ query_vector
 
 cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
 cosine_similarities
+
+
+def search_tfidf(query, vectorizer, tfidf_matrix):
+    query_vector = vectorizer.transform([query])
+    cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
+
+    sorted_similarities = list(enumerate(cosine_similarities))
+    sorted_similarities
+
+    return sorted(sorted_similarities, key=lambda x: x[1], reverse=True)
