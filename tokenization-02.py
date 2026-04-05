@@ -44,8 +44,17 @@ cosine_similarities
 def search_tfidf(query, vectorizer, tfidf_matrix):
     query_vector = vectorizer.transform([query])
     cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
-
     sorted_similarities = list(enumerate(cosine_similarities))
-    sorted_similarities
+    results = sorted(sorted_similarities, key=lambda x: x[1], reverse=True)
 
-    return sorted(sorted_similarities, key=lambda x: x[1], reverse=True)
+    return results
+
+
+search_results = search_tfidf(query, vectorizer, tfidf_matrix)
+search_results
+
+print(f"top 10 more simlitary documents to the query '{query}':")
+for index, similarity in search_results[:10]:
+    print(f"Document {index}: {documents[index]}")
+    print(f"Similarity: {similarity}")
+    print("-" * 50)
