@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Local search index (Whoosh; regenerate with indexing script)
+index_dir/
+
+# Ruff
+.ruff_cache/

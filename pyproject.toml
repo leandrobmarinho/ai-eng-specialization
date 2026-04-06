@@ -9,6 +9,7 @@ dependencies = [
     "openai>=2.9.0",
     "pydantic>=2.12.5",
     "scikit-learn>=1.8.0",
+    "whoosh>=2.7.4",
 ]
 
 [dependency-groups]
